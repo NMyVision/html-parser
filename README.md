@@ -10,4 +10,4 @@
 
   let result = hp.Parse("<div><input disabled required type='text' /></div>")
 ```
-
+![Screenshot](docs\output-screenshot.png)
