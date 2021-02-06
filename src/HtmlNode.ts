@@ -3,7 +3,7 @@ import HtmlNodeOptions from "./HtmlNodeOptions";
 import HtmlNodeType from "./HtmlNodeType"
 
 export default class HtmlNode {
-  #outerHTML?: string;
+  _outerHTML?: string;
 
   private startIndex: number;
   private endIndex: number;
@@ -36,12 +36,12 @@ export default class HtmlNode {
   }
 
   public get outerHTML(): string {
-    return this.#outerHTML ?? "";
+    return this._outerHTML ?? "";
   }
 
   public setEndIndex(index: number, source: string): void {
     this.endIndex = index;
-    this.#outerHTML = source.substring(this.startIndex, this.endIndex);
+    this._outerHTML = source.substring(this.startIndex, this.endIndex);
   }
 
   addChildren(enumerable: HtmlNode[]): void {
