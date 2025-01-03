@@ -1,13 +1,13 @@
-import HtmlNode from "./HtmlNode";
-import HtmlNodeAttributes from "./HtmlNodeAttributes";
+import type HtmlNode from "./HtmlNode.ts";
+import type HtmlNodeAttributes from "./HtmlNodeAttributes.ts";
 
 export type HtmlNodeOptions = {
   tag: string;
   endTag: string;
   selfClosing: boolean;
   content: string;
-  attributes: HtmlNodeAttributes ;
+  attributes: HtmlNodeAttributes;
   children: HtmlNode[];
 };
 
-export default HtmlNodeOptions
+export default HtmlNodeOptions;

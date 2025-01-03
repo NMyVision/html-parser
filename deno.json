@@ -1,0 +1,38 @@
+{
+  "name": "@nmyvision/html-parser",
+  "version": "1.1.1",
+  "description": "A zero dependency library for parsing HTML and HTML like languages like JSX, Vue",
+  "author": "Matt Gambill",
+  "homepage": "https://github.com/NMyVision/html-parser/blob/master/README.md",
+  "exports": {
+    "./HtmlNode": "./src/HtmlNode.ts",
+    "./HtmlNodeAttributes": "./src/HtmlNodeAttributes.ts",
+    "./HtmlNodeOptions": "./src/HtmlNodeOptions.ts",
+    "./HtmlNodeType": "./src/HtmlNodeType.ts",
+    "./HtmlParser": "./src/HtmlParser.ts",
+    "./ParserOptions": "./src/ParserOptions.ts",
+    "./Queue": "./src/Queue.ts",
+    "./StringQueue": "./src/StringQueue.ts",
+    ".": "./src/HtmlParser.ts"
+  },
+  "license": "MIT",
+  "tasks": {
+    "dev": "deno run --watch src/main.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1",
+    "@std/expect": "jsr:@std/expect@^1.0.10",
+    "@std/testing": "jsr:@std/testing@^1.0.8"
+  },
+  "publish": {
+    "include": [
+      "README.md",
+      "src/**/*.ts",
+      "docs"
+    ],
+    "exclude": [
+      "__tests__",
+      ".vscode"
+    ]
+  }
+}

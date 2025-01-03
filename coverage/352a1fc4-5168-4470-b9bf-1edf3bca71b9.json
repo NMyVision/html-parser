@@ -1,0 +1,87 @@
+{
+  "scriptId": "320",
+  "url": "file:///D:/github/nmyvision/html-parser-deno/src/StringQueue.ts",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 2008, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "<instance_members_initializer>",
+      "ranges": [{ "startOffset": 111, "endOffset": 128, "count": 11 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "StringQueue",
+      "ranges": [
+        { "startOffset": 132, "endOffset": 273, "count": 11 },
+        { "startOffset": 169, "endOffset": 187, "count": 2 },
+        { "startOffset": 188, "endOffset": 221, "count": 9 },
+        { "startOffset": 210, "endOffset": 216, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "enqueue",
+      "ranges": [{ "startOffset": 327, "endOffset": 375, "count": 18 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "dequeue",
+      "ranges": [
+        { "startOffset": 430, "endOffset": 591, "count": 6 },
+        { "startOffset": 513, "endOffset": 570, "count": 5 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "peek",
+      "ranges": [
+        { "startOffset": 663, "endOffset": 881, "count": 3 },
+        { "startOffset": 788, "endOffset": 880, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "get index",
+      "ranges": [{ "startOffset": 911, "endOffset": 952, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "any",
+      "ranges": [{ "startOffset": 988, "endOffset": 1027, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "run",
+      "ranges": [{ "startOffset": 1092, "endOffset": 1375, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "skipSpace",
+      "ranges": [{ "startOffset": 1451, "endOffset": 1591, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "size",
+      "ranges": [{ "startOffset": 1648, "endOffset": 1684, "count": 6 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "clear",
+      "ranges": [{ "startOffset": 1726, "endOffset": 1760, "count": 2 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "isEmpty",
+      "ranges": [{ "startOffset": 1796, "endOffset": 1841, "count": 7 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "contains",
+      "ranges": [{ "startOffset": 1927, "endOffset": 2005, "count": 3 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

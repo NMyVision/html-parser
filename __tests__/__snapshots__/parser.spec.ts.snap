@@ -1,0 +1,156 @@
+export const snapshot = {};
+
+snapshot[`HtmlParser Tests > simple test 1`] = `
+HtmlNode {
+  _outerHTML: "<div />",
+  attributes: {
+    "/": undefined,
+  },
+  children: [],
+  content: undefined,
+  endIndex: 7,
+  endTag: undefined,
+  selfClosing: undefined,
+  startIndex: 0,
+  tag: "div",
+  type: 3,
+}
+`;
+
+snapshot[`HtmlParser Tests > attribute test 1`] = `
+HtmlNode {
+  _outerHTML: "<input disabled required type='text' />",
+  attributes: {
+    disabled: undefined,
+    required: undefined,
+    type: "text",
+  },
+  children: [],
+  content: undefined,
+  endIndex: 39,
+  endTag: "",
+  selfClosing: true,
+  startIndex: 0,
+  tag: "input",
+  type: 3,
+}
+`;
+
+snapshot[`HtmlParser Tests > attribute test 2`] = `
+HtmlNode {
+  _outerHTML: "<div><input disabled required type='text' /></div>",
+  attributes: {},
+  children: [
+    HtmlNode {
+      _outerHTML: "<input disabled required type='text' />",
+      attributes: {
+        disabled: undefined,
+        required: undefined,
+        type: "text",
+      },
+      children: [],
+      content: undefined,
+      endIndex: 44,
+      endTag: "",
+      selfClosing: true,
+      startIndex: 5,
+      tag: "input",
+      type: 3,
+    },
+  ],
+  content: undefined,
+  endIndex: 50,
+  endTag: "div",
+  selfClosing: undefined,
+  startIndex: 0,
+  tag: "div",
+  type: 3,
+}
+`;
+
+snapshot[`HtmlParser Tests > incomplete sample 1`] = `
+[
+  HtmlNode {
+    _outerHTML: '<article id="edito',
+    attributes: {
+      dito: "ito",
+      id: "edito",
+      ito: "to",
+      o: undefined,
+      to: "o",
+    },
+    children: [],
+    content: undefined,
+    endIndex: 18,
+    endTag: undefined,
+    selfClosing: undefined,
+    startIndex: 0,
+    tag: "article",
+    type: 3,
+  },
+]
+`;
+
+snapshot[`HtmlParser Tests > jsx sample 1`] = `
+[
+  HtmlNode {
+    _outerHTML: "<fieldset>
+        <legend>Enter temperature in {scaleNames[scale]}:</legend>
+        <input value={temperature}
+               onChange={this.handleChange} />
+      </fieldset>",
+    attributes: {},
+    children: [
+      HtmlNode {
+        _outerHTML: "<legend>Enter temperature in {scaleNames[scale]}:</legend>",
+        attributes: {},
+        children: [
+          HtmlNode {
+            _outerHTML: undefined,
+            attributes: {},
+            children: [],
+            content: "Enter temperature in {scaleNames[scale]}:",
+            endIndex: 0,
+            endTag: undefined,
+            selfClosing: undefined,
+            startIndex: 0,
+            tag: undefined,
+            type: 4,
+          },
+        ],
+        content: undefined,
+        endIndex: 77,
+        endTag: "legend",
+        selfClosing: undefined,
+        startIndex: 19,
+        tag: "legend",
+        type: 3,
+      },
+      HtmlNode {
+        _outerHTML: "<input value={temperature}
+               onChange={this.handleChange} />",
+        attributes: {
+          onChange: "{this.handleChange}",
+          value: "{temperature}
+",
+        },
+        children: [],
+        content: undefined,
+        endIndex: 159,
+        endTag: "",
+        selfClosing: true,
+        startIndex: 86,
+        tag: "input",
+        type: 3,
+      },
+    ],
+    content: undefined,
+    endIndex: 177,
+    endTag: "fieldset",
+    selfClosing: undefined,
+    startIndex: 0,
+    tag: "fieldset",
+    type: 3,
+  },
+]
+`;

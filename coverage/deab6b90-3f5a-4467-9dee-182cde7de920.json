@@ -1,0 +1,80 @@
+{
+  "scriptId": "326",
+  "url": "file:///D:/github/nmyvision/html-parser-deno/src/HtmlNode.ts",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 1778, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "<instance_members_initializer>",
+      "ranges": [{ "startOffset": 80, "endOffset": 193, "count": 50 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "HtmlNode",
+      "ranges": [
+        { "startOffset": 197, "endOffset": 728, "count": 50 },
+        { "startOffset": 269, "endOffset": 274, "count": 30 },
+        { "startOffset": 391, "endOffset": 724, "count": 30 },
+        { "startOffset": 557, "endOffset": 618, "count": 25 },
+        { "startOffset": 604, "endOffset": 609, "count": 0 },
+        { "startOffset": 661, "endOffset": 718, "count": 25 },
+        { "startOffset": 704, "endOffset": 709, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "get outerHTML",
+      "ranges": [
+        { "startOffset": 731, "endOffset": 786, "count": 4 },
+        { "startOffset": 776, "endOffset": 781, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "setEndIndex",
+      "ranges": [{ "startOffset": 789, "endOffset": 920, "count": 25 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "addChildren",
+      "ranges": [{ "startOffset": 923, "endOffset": 991, "count": 11 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "get empty",
+      "ranges": [{ "startOffset": 1001, "endOffset": 1065, "count": 19 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "CreateDocType",
+      "ranges": [{ "startOffset": 1075, "endOffset": 1173, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "CreateWhiteSpace",
+      "ranges": [{ "startOffset": 1183, "endOffset": 1292, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "CreateComment",
+      "ranges": [{ "startOffset": 1302, "endOffset": 1370, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "CreateElement",
+      "ranges": [
+        { "startOffset": 1380, "endOffset": 1668, "count": 25 },
+        { "startOffset": 1579, "endOffset": 1647, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "CreateText",
+      "ranges": [{ "startOffset": 1678, "endOffset": 1775, "count": 4 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

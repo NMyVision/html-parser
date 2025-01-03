@@ -1,60 +1,60 @@
-import { textSpanIsEmpty } from "typescript"
-import Queue from "./Queue"
-
+import Queue from "./Queue.ts";
 
 /**
  * A Special type of Queue made for parsing strings
  */
-export default class StringQueue extends Queue<string>
-{
-
-  private _source: string[] | undefined
-  private _index: number
+export default class StringQueue extends Queue<string> {
+  #source: string[];
+  #index: number;
 
   constructor(text?: string) {
-    if (text) {
-      super(...Array.from(text))
-      this._source = Array.from(text)
-      this._index = 0
+    super(...(text ? Array.from(text) : []));
+    this.#source = text ? Array.from(text) : [];
+    this.#index = 0;
+  }
+
+  // @ts-ignore: we want peek to always return string, there is no way to force this via TS
+  peek(take?: number): string {
+    if (take === undefined) {
+      return this[0]; // Return the first element if no argument is provided
     }
-    else {
-      super()
-      this._index = 0
+    return this.slice(0, take).join(""); // Return the first 'take' elements as a string
+  }
+
+  get index(): number {
+    return this.#index;
+  }
+
+  any(): boolean {
+    return !this.isEmpty();
+  }
+
+  run(...chars: string[]): string {
+    const tx = this.join("");
+    const positions = chars.map((x) => tx.indexOf(x)).filter((index) =>
+      index >= 0
+    );
+    const r = positions.length > 0 ? Math.min(...positions) : -1;
+    this.#index += r >= 0 ? r : 0;
+
+    // short circuit out
+    if (r < 0) return this.join("");
+
+    return this.splice(0, r >= 0 ? r : 0).join("");
+  }
+
+  override dequeue(length: number = 1): string {
+    let text = "";
+    while (length-- > 0 && !this.isEmpty()) {
+      this.#index++;
+      text += super.dequeue()!;
     }
-  }
-
-  get index() {
-    return this._index;
-  }
-
-  any() {
-    return !this.isEmpty()
-  }
-
-
-  run(...chars: string[]) {
-    const tx = this.join('')
-    const r = Math.min.apply(null, chars.map(x => tx.indexOf(x)).filter(x => x >= 0))
-    this._index += r
-    return this.splice(0, r).join('')
-  }
-
-  dequeue(length?: number) {
-    if (length !== undefined) {
-      var text = '';
-      while (length-- > 0) {
-        this._index++;
-        text += super.dequeue();
-      }
-      return text;
-    }
-
-    this._index++;
-    return super.dequeue();
+    return text;
   }
 
   skipSpace(): void {
-    while (!this.isEmpty() && (this.peek() == ' ' || this.peek() == '\r' || this.peek() == '\n'))
+    while (!this.isEmpty() && [" ", "\r", "\n"].includes(this.peek()!)) {
       this.dequeue();
+    }
   }
 }

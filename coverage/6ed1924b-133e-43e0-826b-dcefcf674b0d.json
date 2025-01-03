@@ -1,0 +1,11 @@
+{
+  "scriptId": "327",
+  "url": "file:///D:/github/nmyvision/html-parser-deno/src/ParserOptions.ts",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 316, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}

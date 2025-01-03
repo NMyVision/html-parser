@@ -1,12 +1,12 @@
- /**
-  * Type of node.
-  */
+/**
+ * Type of node.
+ */
 enum HtmlNodeType {
   DocType,
   Whitespace,
   Comment,
   Element,
-  Text
+  Text,
 }
 
-export default HtmlNodeType
+export default HtmlNodeType;

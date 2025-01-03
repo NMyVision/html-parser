@@ -1,152 +1,154 @@
-import { HtmlParser } from "../src/HtmlParser";
+import { describe, test } from "jsr:@std/testing/bdd";
+import { expect } from "jsr:@std/expect";
+import { HtmlParser } from "../src/HtmlParser.ts";
+import { assertSnapshot } from "@std/testing/snapshot";
 
-describe.only("HtmlParser Tests", () => {
+describe("HtmlParser Tests", () => {
+  test("simple test", async (t) => {
+    const hp = new HtmlParser();
 
-  test("simple test", () => {
-    const hp = new HtmlParser()
+    const html = "<div />";
 
-    const html = "<div />"
+    const result = hp.parse(html)[0];
 
-    const result = hp.Parse(html)[0]
-
-    console.log(result)
-
-    expect(result.tag).toEqual("div")
-
-    expect(result.outerHTML).toEqual(html);
-  })
-
-  test("attribute test", () => {
-    const hp = new HtmlParser()
-
-    const html = "<input disabled required type='text' />"
-
-    const result = hp.Parse(html)[0]
-
-    expect(result.tag).toEqual("input");
-
-    expect(Object.keys(result.attributes).length).toEqual(3);
-
-    expect(result.attributes.type).toEqual("text");
-
-    expect(result.outerHTML).toEqual(html);
-  })
-
-  test("attribute test", () => {
-    const hp = new HtmlParser()
-
-    const innerHtml = `<input disabled required type='text' />`
-
-    const html = `<div>${innerHtml}</div>`
-
-    let result = hp.Parse(html)[0]
-
-    console.log(result)
+    await assertSnapshot(t, result);
 
     expect(result.tag).toEqual("div");
 
-    expect(Object.keys(result.attributes).length).toEqual(0);
+    expect(result.outerHTML).toEqual(html);
+  });
+
+  test("attribute test", async (t) => {
+    const hp = new HtmlParser();
+
+    const html = "<input disabled required type='text' />";
+
+    const result = hp.parse(html)[0];
+
+    await assertSnapshot(t, result);
+
+    expect(result.tag).toEqual("input");
+
+    expect(Object.keys(result.attributes as object).length).toEqual(3);
+
+    expect(result.attributes?.type).toEqual("text");
+
+    expect(result.outerHTML).toEqual(html);
+  });
+
+  test("attribute test", async (t) => {
+    const hp = new HtmlParser();
+
+    const innerHtml = `<input disabled required type='text' />`;
+
+    const html = `<div>${innerHtml}</div>`;
+
+    let result = hp.parse(html)[0];
+
+    await assertSnapshot(t, result);
+
+    expect(result.tag).toEqual("div");
+
+    expect(Object.keys(result.attributes as object).length).toEqual(0);
 
     expect(result.outerHTML).toEqual(html);
 
-    result = result.children[0]
+    result = result.children[0];
 
-    expect(result.tag).toEqual("input")
+    expect(result.tag).toEqual("input");
 
-    expect(Object.keys(result.attributes).length).toEqual(3);
+    expect(Object.keys(result.attributes as object).length).toEqual(3);
 
-    expect(result.attributes.type).toBeTruthy();
+    expect(result.attributes?.type).toBeTruthy();
 
-    expect(result.attributes.type).toEqual("text");
+    expect(result.attributes?.type).toEqual("text");
 
     expect(result.outerHTML).toEqual(innerHtml);
-  })
+  });
 
-  test('incomplete sample', () => {
+  test("incomplete sample", async (t) => {
+    const hp = new HtmlParser();
 
-    const hp = new HtmlParser()
+    let result = hp.parse(`<article id="edito`);
 
-    let result = {}
+    await assertSnapshot(t, result);
 
-    result = hp.Parse(`<article id="edito`)
+    expect(result[0].tag).toEqual("article");
 
-    expect(result[0].tag).toEqual("article")
+    expect(result[0]?.attributes?.id).toEqual("edito");
 
-    expect(result[0].attributes.id).toEqual("edito")
+    result = hp.parse(`<article id="editor"`);
 
+    expect(result[0].tag).toEqual("article");
 
-    result = hp.Parse(`<article id="editor"`)
+    expect(result[0]?.attributes?.id).toEqual("editor");
+  });
 
-    expect(result[0].tag).toEqual("article")
-
-    expect(result[0].attributes.id).toEqual("editor")
-
-  })
-  test('vue sample', () => {
+  test("vue sample", () => {
     const vue = `<article id="editor">
   <textarea :value="input" @input="update"></textarea>
   <div v-html="compiledMarkdown"></div>
-</article>`
+</article>`;
 
-    const hp = new HtmlParser()
+    const hp = new HtmlParser();
 
-    const result = hp.Parse(vue)
+    const result = hp.parse(vue);
 
-    let el = result[0]
-    expect(el.tag).toEqual("article")
+    let el = result[0];
+    expect(el.tag).toEqual("article");
 
-    el = result[0].children[0]
+    el = result[0].children[0];
 
-    expect(el.tag).toEqual("textarea")
-    expect(Object.values(el.attributes).length).toEqual(2)
+    expect(el.tag).toEqual("textarea");
+    expect(Object.values(el.attributes as object).length).toEqual(2);
 
-    el = result[0].children[1]
-    expect(el.tag).toEqual("div")
-    expect(Object.values(el.attributes).length).toEqual(1)
+    el = result[0].children[1];
+    expect(el.tag).toEqual("div");
+    expect(Object.values(el.attributes as object).length).toEqual(1);
+  });
 
-  })
-
-  test('vue multiline sample', () => {
+  test("vue multiline sample", () => {
     const vue = `<article id="editor">
   <textarea
     :value="input"
     @input="update => alert('Ok')"
     >Some Content</textarea>
   <div v-html="compiledMarkdown"></div>
-</article>`
+</article>`;
 
-    const hp = new HtmlParser()
+    const hp = new HtmlParser();
 
-    const result = hp.Parse(vue)
+    const result = hp.parse(vue);
 
-    let el = result[0]
-    expect(el.tag).toEqual("article")
+    let el = result[0];
+    expect(el.tag).toEqual("article");
 
-    el = result[0].children[0]
+    el = result[0].children[0];
 
-    expect(el.tag).toEqual("textarea")
-    expect(el.children[0].content).toEqual("Some Content")
-    expect(Object.values(el.attributes).length).toEqual(2)
+    expect(el.tag).toEqual("textarea");
+    expect(el.children[0].content).toEqual("Some Content");
+    expect(Object.values(el.attributes as object).length).toEqual(2);
 
+    el = result[0].children[1];
+    expect(el.tag).toEqual("div");
+    expect(Object.values(el.attributes as object).length).toEqual(1);
+  });
 
-    el = result[0].children[1]
-    expect(el.tag).toEqual("div")
-    expect(Object.values(el.attributes).length).toEqual(1)
-  })
-
-  test('jsx sample', () => {
+  test("jsx sample", async (t) => {
     const jsx = `<fieldset>
         <legend>Enter temperature in {scaleNames[scale]}:</legend>
         <input value={temperature}
                onChange={this.handleChange} />
-      </fieldset>`
+      </fieldset>`;
 
-    const hp = new HtmlParser()
+    const hp = new HtmlParser();
 
-    const result = hp.Parse(jsx)
-  })
+    const result = hp.parse(jsx);
 
-  test('index.html sample', () => {
+    await assertSnapshot(t, result);
+  });
+
+  test("index.html sample", () => {
     const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,20 +169,16 @@ html {
   <div id="app" class="min-h-screen"></div>
   <script type="module" src="/src/main.js"></script>
 </body>
-</html>`
+</html>`;
 
-    const hp = new HtmlParser()
+    const hp = new HtmlParser();
 
-    const result = hp.Parse(html)
+    const result = hp.parse(html);
 
-    console.log(result[1])
+    expect(result[0].type).toEqual(0);
 
-    expect(result[0].type).toEqual(0)
+    expect(result[1].type).toEqual(3);
 
-    expect(result[1].type).toEqual(3)
-
-    JSON.stringify(result)
-
-  })
-
-})
+    JSON.stringify(result);
+  });
+});

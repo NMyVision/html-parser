@@ -1,6 +1,6 @@
-import HtmlNodeAttributes from "./HtmlNodeAttributes";
-import HtmlNodeOptions from "./HtmlNodeOptions";
-import HtmlNodeType from "./HtmlNodeType"
+import type HtmlNodeAttributes from "./HtmlNodeAttributes.ts";
+import type HtmlNodeOptions from "./HtmlNodeOptions.ts";
+import HtmlNodeType from "./HtmlNodeType.ts";
 
 export default class HtmlNode {
   _outerHTML?: string;
@@ -20,18 +20,20 @@ export default class HtmlNode {
   public constructor(type: HtmlNodeType, options?: Partial<HtmlNodeOptions>) {
     this.type = type;
     this.tag = options?.tag;
-    this.children = []
+    this.children = [];
     this.attributes = {};
-    this.startIndex = 0
-    this.endIndex = 0
+    this.startIndex = 0;
+    this.endIndex = 0;
     if (options) {
       this.endTag = options.endTag;
       this.selfClosing = options.selfClosing;
       this.content = options.content;
-      if (options.attributes !== undefined)
+      if (options.attributes !== undefined) {
         this.attributes = options.attributes ?? {};
-      if (options.children !== undefined)
+      }
+      if (options.children !== undefined) {
         this.children = options.children ?? [];
+      }
     }
   }
 
@@ -49,10 +51,10 @@ export default class HtmlNode {
   }
 
   static get empty(): HtmlNode {
-    return new HtmlNode(HtmlNodeType.Element)
+    return new HtmlNode(HtmlNodeType.Element);
   }
 
-  static CreateDocType(content: string ): HtmlNode {
+  static CreateDocType(content: string): HtmlNode {
     return new HtmlNode(HtmlNodeType.DocType, { content });
   }
 
@@ -65,20 +67,21 @@ export default class HtmlNode {
   }
 
   static CreateElement(value: number | string): HtmlNode {
-    const node = new HtmlNode(HtmlNodeType.Element, { children: [], attributes: {} });
+    const node = new HtmlNode(HtmlNodeType.Element, {
+      children: [],
+      attributes: {},
+    });
 
-    if (typeof value === 'number')
+    if (typeof value === "number") {
       node.startIndex = value;
-    else if (typeof value === 'string')
+    } else if (typeof value === "string") {
       node.tag = value;
+    }
 
     return node;
   }
 
-
   static CreateText(content: string = ""): HtmlNode {
     return new HtmlNode(HtmlNodeType.Text, { content });
   }
-
 }
-

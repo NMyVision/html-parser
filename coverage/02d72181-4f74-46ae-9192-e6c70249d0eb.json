@@ -1,0 +1,77 @@
+{
+  "scriptId": "317",
+  "url": "file:///D:/github/nmyvision/html-parser-deno/__tests__/stringqueue.spec.ts",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 0, "endOffset": 3088, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 187, "endOffset": 3085, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "hydrateQueue",
+      "ranges": [{ "startOffset": 230, "endOffset": 331, "count": 4 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 345, "endOffset": 387, "count": 7 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 424, "endOffset": 586, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 614, "endOffset": 892, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        { "startOffset": 908, "endOffset": 1858, "count": 1 },
+        { "startOffset": 1787, "endOffset": 1792, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 1878, "endOffset": 2165, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 2182, "endOffset": 2481, "count": 1 }],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [
+        { "startOffset": 2526, "endOffset": 2835, "count": 1 },
+        { "startOffset": 2671, "endOffset": 2723, "count": 0 }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 2557, "endOffset": 2636, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 2757, "endOffset": 2829, "count": 0 }],
+      "isBlockCoverage": false
+    },
+    {
+      "functionName": "",
+      "ranges": [{ "startOffset": 2878, "endOffset": 3081, "count": 1 }],
+      "isBlockCoverage": true
+    }
+  ]
+}
