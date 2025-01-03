@@ -34,6 +34,12 @@ export class HtmlParser {
     this.q = new StringQueue();
   }
 
+  /**
+   * This function parses the html string and returns a list of nodes.
+   *
+   * @param source the html string to be parsed
+   * @returns HTMLNode[]
+   */
   public parse(source: string): HtmlNode[] {
     this.source = source;
     this.q = new StringQueue(source);
