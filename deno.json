@@ -1,6 +1,6 @@
 {
   "name": "@nmyvision/html-parser",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A zero dependency library for parsing HTML and HTML like languages like JSX, Vue",
   "author": "Matt Gambill",
   "homepage": "https://github.com/NMyVision/html-parser/blob/master/README.md",
